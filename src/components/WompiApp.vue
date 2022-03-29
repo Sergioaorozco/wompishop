@@ -95,10 +95,14 @@ div {
 @media only screen and (min-width: 600px) {
   .is-fluid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 4em;
   }
+}
+
+@media only screen and (min-width: 800px) {
+  grid-template-columns: repeat(4, 1fr);
 }
 </style>
