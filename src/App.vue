@@ -1,28 +1,24 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <wompi-app></wompi-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WompiApp from './components/WompiApp.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'wompi-app': WompiApp,
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@import "./assets/styles.css";
+
+body {
+  margin: 0;
+  background-color: var(--color-body-background);
+  color: var(--color-body-text);
 }
 </style>
