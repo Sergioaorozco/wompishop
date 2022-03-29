@@ -61,7 +61,8 @@ h5,
 h6,
 p,
 div {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   font-family: "Lato", sans-serif;
 }
 .wrapper {
@@ -102,7 +103,15 @@ div {
   }
 }
 
-@media only screen and (min-width: 800px) {
-  grid-template-columns: repeat(4, 1fr);
+@media only screen and (min-width: 768px) {
+  .is-fluid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .is-fluid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 </style>
