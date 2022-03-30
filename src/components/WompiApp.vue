@@ -105,7 +105,7 @@ div {
 
 @media only screen and (min-width: 1025px) {
   .is-fluid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   }
 }
 </style>
