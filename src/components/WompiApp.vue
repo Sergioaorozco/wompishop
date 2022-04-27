@@ -1,31 +1,17 @@
 <template>
   <div>
     <div class="discount">
-      <p>15% de descuento en todos nuestros productos a nivel nacional</p>
+      <p>Bebidas Naturales Umhana - Colombia</p>
     </div>
     <div class="wrapper">
       <h1 class="information">WompiShop</h1>
       <div class="is-fluid">
-        <div class="information">
-          <img src="../assets/product1.webp" alt="Calma Natural Drink" />
-          <p>Calma - $120.000COP</p>
-          <wompi-button amount-in-cents="12000000" />
+        <div class="information" v-for="product in products" :key="product.name">
+          <img :src="product.image" :alt="product.alt" />
+          <p>{{ product.name }} - <span>${{ product.price }}</span></p>
+          <a v-on:click="addToCart(product)" id="cartEvent" class="btn">Agregar al carrito</a>
         </div>
-        <div class="information">
-          <img src="../assets//product2.webp" alt="Inmunity Natural Drink" />
-          <p>Inmunity Boost - $78.000COP</p>
-          <wompi-button amount-in-cents="7800000" />
-        </div>
-        <div class="information">
-          <img src="../assets//product3.webp" alt="Natural Drink for the Skin" />
-          <p>Beauty Elixir - $45.000COP</p>
-          <wompi-button amount-in-cents="4500000" />
-        </div>
-        <div class="information">
-          <img src="../assets//product4.webp" alt="Natural Drink to enhance cognitive behaviors." />
-          <p>Cognitive Boost - $54.000COP</p>
-          <wompi-button amount-in-cents="5400000" />
-        </div>
+        <wompi-cart class="information" :cartInformation="cart" :showCart="show" />
       </div>
     </div>
   </div>
@@ -33,11 +19,61 @@
 
 <script>
 import WompiButton from './WompiButton.vue';
+import WompiCart from './WompiCart.vue';
 
 export default {
   name: 'WompiApp',
   components: {
-    'wompi-button': WompiButton
+    'wompi-button': WompiButton,
+    'wompi-cart': WompiCart
+  },
+  data() {
+    return {
+      show: false,
+      cart: [],
+      products: [
+        {
+          id: 1,
+          name: 'Calma Natural',
+          price: 120000,
+          image: require('../assets//product1.webp'),
+          alt: ('Bebida Natural Calma')
+        },
+        {
+          id: 2,
+          name: 'Inmmunity Boost',
+          price: 78000,
+          image: require('../assets//product2.webp'),
+          alt: 'Bebida Inmunidad Defensas'
+        },
+        {
+          id: 3,
+          name: 'Beuaty Elixir',
+          price: 54000,
+          image: require('../assets//product3.webp'),
+          alt: 'Bebida para la belleza de la piel'
+        },
+        {
+          id: 4,
+          name: 'Cognitive Boost',
+          price: 45000,
+          image: require('../assets//product4.webp'),
+          alt: 'Bebida para la agilidad mental'
+        },
+      ],
+    }
+  },
+  methods: {
+    cartEvent() {
+      let event = document.getElementById("cartEvent").click()
+      if (event) {
+        this.show = true
+      }
+    },
+    addToCart(product) {
+      this.show = true
+      this.cart.push(product)
+    }
   }
 };
 
@@ -65,6 +101,53 @@ div {
   padding: 0;
   font-family: "Lato", sans-serif;
 }
+
+
+.btn {
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: var(--color-body-text);
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+    Ubuntu, sans-serif;
+  font-size: 100%;
+  margin: 12px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  padding-block-start: 12px;
+  padding-block-end: 12px;
+}
+
+.btn:disabled {
+  cursor: default;
+}
+
+.btn:hover {
+  background-color: var(--color-body-hover);
+}
+
+.btn:focus {
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+    rgba(50, 151, 211, 0.3) 0 0 0 4px;
+}
+
 .wrapper {
   max-inline-size: 1158px;
   padding-block-end: 6px;
@@ -73,8 +156,10 @@ div {
   padding-inline-end: 15px;
   margin: auto;
 }
+
 .information {
   text-align: center;
+
   & img {
     max-width: 100%;
   }

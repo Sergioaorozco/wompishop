@@ -6,12 +6,12 @@
       <input type="hidden" name="currency" value="COP" />
       <input type="hidden" name="amount-in-cents" :value="amountInCents" />
       <input type="hidden" name="reference" :value="uniqueId" />
-      <button class="btn-buy" type="submit">Comprar</button>
+      <button class="btn-modal" type="submit">Comprar</button>
     </form>
   </div>
 </template>
 
-<script>import { log } from "console"
+<script>
 
 export default {
   name: 'WompiButton',
@@ -28,7 +28,7 @@ export default {
 
 </script>
 <style scoped>
-.btn-buy {
+.btn-modal {
   appearance: button;
   backface-visibility: hidden;
   background-color: var(--color-body-text);
@@ -59,22 +59,17 @@ export default {
   width: 100%;
 }
 
-.btn-buy:disabled {
+.btn-modal:disabled {
   cursor: default;
 }
 
-.btn-buy:hover {
+.btn-modal:hover {
   background-color: var(--color-body-hover);
 }
-.btn-buy:focus {
+
+.btn-modal:focus {
   box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
     rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
     rgba(50, 151, 211, 0.3) 0 0 0 4px;
-}
-
-@media only screen and (min-width: 600px) {
-  .btn-buy {
-    width: 250px;
-  }
 }
 </style>
