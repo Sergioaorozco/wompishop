@@ -1,9 +1,9 @@
 <template>
     <div>
         <div v-if="showCart">
-            <div class="sidebar">
+            <div class=" sidebar">
                 <div class="sidebar-header">
-                    <p>Carrito de compras</p>
+                    <h2>Carrito de compras</h2>
                 </div>
                 <div class="sidebar-content">
                     <div class="sidebar-items">
@@ -11,14 +11,15 @@
                             <li>{{ item.name }} <span class="is-right"> ${{ item.price }}</span></li>
                             <hr>
                         </ul>
+                        <h3 v-if="orderTotal">Total: ${{ }}</h3>
                     </div>
                     <div class="checkout checkbutton">
                         <wompi-button amount-in-cents="12000000" />
-                        <a @click="returnWeb" class="is-back">Sigue comprando</a>
+                        <a @click="$emit('update:showCart', false)" class="is-back">Sigue comprando</a>
                     </div>
                 </div>
             </div>
-            <div @click="returnWeb" class="sidebar-mask">
+            <div @click="$emit('update:showCart', false)" class="sidebar-mask">
             </div>
         </div>
     </div>
@@ -31,15 +32,17 @@ export default {
     props: ['cartInformation', 'showCart'],
     data() {
         return {
-            emptyCart: true,
+            item: { total: 22 },
         }
     },
     components: {
         'wompi-button': WompiButton,
     },
     methods: {
-        returnWeb() {
-            this.showCart = false
+    },
+    computed: {
+        orderTotal() {
+
         }
     }
 }

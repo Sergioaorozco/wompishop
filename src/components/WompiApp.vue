@@ -11,7 +11,7 @@
           <p>{{ product.name }} - <span>${{ product.price }}</span></p>
           <a v-on:click="addToCart(product)" id="cartEvent" class="btn">Agregar al carrito</a>
         </div>
-        <wompi-cart class="information" :cartInformation="cart" :showCart="show" />
+        <wompi-cart class="information" :cartInformation="cart" :showCart.sync="show" />
       </div>
     </div>
   </div>
