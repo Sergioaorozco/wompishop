@@ -11,10 +11,10 @@
                             <li>{{ item.name }} <span class="is-right"> ${{ item.price }}</span></li>
                             <hr>
                         </ul>
-                        <h3 v-if="orderTotal">Total: ${{ }}</h3>
+                        <h3>Total: ${{ cartTotalAmmount }}</h3>
                     </div>
                     <div class="checkout checkbutton">
-                        <wompi-button amount-in-cents="12000000" />
+                        <wompi-button :amount-in-cents="ammountInCents" />
                         <a @click="$emit('update:showCart', false)" class="is-back">Sigue comprando</a>
                     </div>
                 </div>
@@ -32,17 +32,21 @@ export default {
     props: ['cartInformation', 'showCart'],
     data() {
         return {
-            item: { total: 22 },
         }
     },
     components: {
         'wompi-button': WompiButton,
     },
-    methods: {
-    },
     computed: {
-        orderTotal() {
-
+        cartTotalAmmount: function () {
+            let total = 0
+            this.cartInformation.forEach(e => {
+                total += e.price
+            })
+            return total
+        },
+        ammountInCents() {
+            return parseInt(this.cartTotalAmmount * 100)
         }
     }
 }
@@ -55,6 +59,7 @@ a {
 
 .is-back {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .is-right {

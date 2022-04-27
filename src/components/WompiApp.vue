@@ -31,6 +31,7 @@ export default {
     return {
       show: false,
       cart: [],
+      //Product list
       products: [
         {
           id: 1,
