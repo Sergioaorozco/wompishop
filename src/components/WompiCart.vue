@@ -8,10 +8,10 @@
                 <div class="sidebar-content">
                     <div class="sidebar-items">
                         <ul v-for="item in cartInformation">
-                            <li>{{ item.name }} <span class="is-right"> ${{ item.price }}</span></li>
+                            <li>{{ item.name }} <span class="is-right"> ${{ item.price.toLocaleString() }}</span></li>
                             <hr>
                         </ul>
-                        <h3>Total: ${{ cartTotalAmmount }}</h3>
+                        <h3>Total: ${{ cartTotalAmmount.toLocaleString() }}</h3>
                     </div>
                     <div class="checkout checkbutton">
                         <wompi-button :amount-in-cents="ammountInCents" />
