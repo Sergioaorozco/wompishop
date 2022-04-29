@@ -38,28 +38,32 @@ export default {
           name: 'Kapuf Strength',
           price: 120000,
           image: require('../assets//product1.png'),
-          alt: ('Bebida Natural Calma')
+          alt: 'Bebida Natural Calma',
+          quantity: 1
         },
         {
           id: 2,
           name: 'Kapuf Boost',
           price: 78000,
           image: require('../assets//product2.png'),
-          alt: 'Bebida Inmunidad Defensas'
+          alt: 'Bebida Inmunidad Defensas',
+          quantity: 1
         },
         {
           id: 3,
           name: 'Kapuf Elixir',
           price: 54000,
           image: require('../assets//product3.png'),
-          alt: 'Bebida para la belleza de la piel'
+          alt: 'Bebida para la belleza de la piel',
+          quantity: 1
         },
         {
           id: 4,
           name: 'Kapuf Flow',
           price: 45000,
           image: require('../assets//product4.png'),
-          alt: 'Bebida para la agilidad mental'
+          alt: 'Bebida para la agilidad mental',
+          quantity: 1
         },
       ],
     }
