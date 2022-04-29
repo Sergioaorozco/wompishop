@@ -35,28 +35,28 @@ export default {
       products: [
         {
           id: 1,
-          name: 'Calma Natural',
+          name: 'Kapuf Strength',
           price: 120000,
           image: require('../assets//product1.png'),
           alt: ('Bebida Natural Calma')
         },
         {
           id: 2,
-          name: 'Inmmunity Boost',
+          name: 'Kapuf Boost',
           price: 78000,
           image: require('../assets//product2.png'),
           alt: 'Bebida Inmunidad Defensas'
         },
         {
           id: 3,
-          name: 'Beuaty Elixir',
+          name: 'Kapuf Elixir',
           price: 54000,
           image: require('../assets//product3.png'),
           alt: 'Bebida para la belleza de la piel'
         },
         {
           id: 4,
-          name: 'Cognitive Boost',
+          name: 'Kapuf Flow',
           price: 45000,
           image: require('../assets//product4.png'),
           alt: 'Bebida para la agilidad mental'
