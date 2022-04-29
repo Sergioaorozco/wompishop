@@ -8,10 +8,18 @@
                 <div class="sidebar-content">
                     <div class="sidebar-items">
                         <ul v-for="item in cartInformation">
-                            <li>{{ item.name }} <span class="is-right"> ${{ item.price.toLocaleString() }}</span></li>
+                            <li>{{ item.name }}
+                                <!-- <span>
+                                    <InputNumber v-model="value2" showButtons buttonLayout="horizontal"
+                                        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
+                                        incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />
+                                </span> -->
+                                <span class="is-right"> ${{ item.price.toLocaleString() }}</span>
+                            </li>
                             <hr>
                         </ul>
                         <h3>Total: ${{ cartTotalAmmount.toLocaleString() }}</h3>
+
                     </div>
                     <div class="checkout checkbutton">
                         <wompi-button :amount-in-cents="ammountInCents" />
@@ -32,6 +40,7 @@ export default {
     props: ['cartInformation', 'showCart'],
     data() {
         return {
+            value2: 1
         }
     },
     components: {

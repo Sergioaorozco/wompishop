@@ -12,8 +12,8 @@
     "console": "^0.7.2",
     "core-js": "^3.6.5",
     "primeicons": "^5.0.0",
-    "primevue": "^3.12.5",
-    "vue": "^3.0"
+    "primevue": "^2.9.2",
+    "vue": "^2.6.14"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.15",
@@ -24,7 +24,8 @@
     "eslint-plugin-vue": "^6.2.2",
     "sass": "^1.49.9",
     "sass-loader": "^10",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.46.0"
   },
   "eslintConfig": {
     "root": true,

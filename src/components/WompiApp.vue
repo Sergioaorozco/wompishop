@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="discount">
-      <p>Bebidas Naturales Umhana - Colombia</p>
+      <p>15% Durante el Mes de Abril</p>
     </div>
     <div class="wrapper">
-      <h1 class="information">WompiShop</h1>
+      <h1 class="information">Tienda Kapuf</h1>
       <div class="is-fluid">
         <div class="information" v-for="product in products" :key="product.name">
           <img :src="product.image" :alt="product.alt" />
@@ -37,28 +37,28 @@ export default {
           id: 1,
           name: 'Calma Natural',
           price: 120000,
-          image: require('../assets//product1.webp'),
+          image: require('../assets//product1.png'),
           alt: ('Bebida Natural Calma')
         },
         {
           id: 2,
           name: 'Inmmunity Boost',
           price: 78000,
-          image: require('../assets//product2.webp'),
+          image: require('../assets//product2.png'),
           alt: 'Bebida Inmunidad Defensas'
         },
         {
           id: 3,
           name: 'Beuaty Elixir',
           price: 54000,
-          image: require('../assets//product3.webp'),
+          image: require('../assets//product3.png'),
           alt: 'Bebida para la belleza de la piel'
         },
         {
           id: 4,
           name: 'Cognitive Boost',
           price: 45000,
-          image: require('../assets//product4.webp'),
+          image: require('../assets//product4.png'),
           alt: 'Bebida para la agilidad mental'
         },
       ],
