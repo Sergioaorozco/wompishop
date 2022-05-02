@@ -10,17 +10,13 @@
                         <div v-for="item in cartInformation">
                             <div class="row-flex">
                                 <p>{{ item.name }}</p>
+                                <InputNumber :key="item.id" id="horizontal" v-model="item.quantity" mode="decimal"
+                                    showButtons buttonLayout="horizontal" decrementButtonClass="p-button-secondary"
+                                    incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus"
+                                    decrementButtonIcon="pi pi-minus" />
                                 <div class="row-flex">
-                                    <div>
-                                        <InputNumber :key="item.id" class="mr-4" id="horizontal" v-model="item.quantity"
-                                            mode="decimal" showButtons buttonLayout="horizontal"
-                                            decrementButtonClass="p-button-secondary"
-                                            incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus"
-                                            decrementButtonIcon="pi pi-minus" />
-                                    </div>
                                     <p> ${{ (item.price * item.quantity).toLocaleString() }}</p>
-                                    <button id="btnDelete" :key="item.id" @click="deleteItem"
-                                        class="delete ml-3"></button>
+                                    <button id="btnDelete" @click="deleteItem(item)" class="delete ml-3"></button>
                                 </div>
                             </div>
                             <hr>
@@ -54,7 +50,8 @@ export default {
         'wompi-button': WompiButton,
     },
     methods: {
-        deleteItem: function (index) {
+        deleteItem(item) {
+            let index = this.cartInformation.indexOf(item)
             return this.cartInformation.splice(index, 1)
         },
     },
