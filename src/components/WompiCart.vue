@@ -153,6 +153,7 @@ a {
 }
 
 /deep/.p-inputtext {
+    text-align: center;
     width: 3em;
 }
 
